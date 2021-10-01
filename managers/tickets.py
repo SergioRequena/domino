@@ -7,7 +7,7 @@ def load():
     with open('D:/Python/lotobingo/data/tickets.json') as json_file:
         data = json.load(json_file)
         for ticket in data['tickets']:
-            new_ticket = Ticket(ticket["id"],ticket["colour"],ticket["numbers"])
+            new_ticket = Ticket(ticket["id"],ticket["colour"],ticket["numbers"],0)
             tickets.append(new_ticket)
     return tickets
 

@@ -8,15 +8,16 @@ def main():
     matrix = grid.init(9,10)
     rotating_drum = drum.init()
     winners_list = []
-    while len(rotating_drum) > 0 and len(winners_list) == 0:
+    while len(rotating_drum) > 0:
         ball = drum.pull_ball(rotating_drum)
         grid.update(matrix, ball)
         grid.draw(matrix, ball)
         tickets.update(tickets_list, ball)
-        winners_list = winner.check(tickets_list)
-        if len(winners_list) == 0:
-            input("Pulsa para extraer la siguiete bola:\n")
-    winner.print_winners_list(winners_list)
+        winners_list, ticket_list = winner.check(tickets_list, winners_list)
+        winner.print_winners_list(winners_list)
+        drum.next_ball(rotating_drum)
+    winner.print_final_ranking(winners_list)
+    drum.endgame()
 
 if __name__ == "__main__":
     main()

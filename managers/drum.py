@@ -7,3 +7,10 @@ def init():
 
 def pull_ball(rotating_drum):
     return rotating_drum.pop(0)
+
+def next_ball(rotating_drum):
+    if (len(rotating_drum) != 0):
+            input("Pulsa para extraer la siguiete bola:\n")
+
+def endgame():
+    print("Bombo vacío! Fin del juego")
