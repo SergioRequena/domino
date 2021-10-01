@@ -1,17 +1,9 @@
 import random
 import json
-from Ticket import Ticket
 
-GREEN = '\033[92m'
-CYAN = '\033[96m'
-WHITE = '\033[0m'
-
-HEADER = '\033[95m'
-BLUE = '\033[94m'
-YELLOW = '\033[93m'
-RED = '\033[91m'
-BOLD = '\033[1m'
-UNDERLINE = '\033[4m'
+from classes.Ticket import Ticket
+from constants import colors as color
+from constants import formats as format
 
 def main():
     tickets = load_tickets()
@@ -58,9 +50,9 @@ def draw_grid(matrix, ball):
         string = "|"
         for column in row:
             if column == ball:
-                string += BOLD + GREEN + " " + str(column).zfill(2) + WHITE + " |"
+                string += format.BOLD + color.GREEN + " " + str(column).zfill(2) + color.WHITE + " |"
             elif column != "**":
-                string +=  CYAN + " " + str(column).zfill(2) + WHITE + " |"
+                string +=  color.CYAN + " " + str(column).zfill(2) + color.WHITE + " |"
             else:
                 string += " " + str(column).zfill(2) + " |"
         print(string)
