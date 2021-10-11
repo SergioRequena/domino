@@ -4,7 +4,7 @@ from classes.Ticket import Ticket
 
 def load():
     tickets = []
-    with open('D:/Python/lotobingo/data/tickets.json') as json_file:
+    with open('data/tickets.json') as json_file:
         data = json.load(json_file)
         for ticket in data['tickets']:
             new_ticket = Ticket(ticket["id"],ticket["colour"],ticket["numbers"],0)
